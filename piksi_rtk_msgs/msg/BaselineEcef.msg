@@ -2,7 +2,7 @@
 # This baseline is the relative vector distance from the base station to the rover receiver.
 # The full GPS time is given by the preceding MSG GPS TIME with the matching time-of-week (tow).
 
-Header header
+std_msgs/Header header
 
 uint32 tow          # GPS Time of Week [ms].
 int32 x             # Baseline ECEF X coordinate [mm].

@@ -1,7 +1,7 @@
 # This message reports the velocity in Earth Centered Earth Fixed (ECEF) coordinates. The full GPS time
 # is given by the preceding MSG GPS TIME with the matching time-of-week (tow).
 
-Header header
+std_msgs/Header header
 
 uint32 tow      # GPS Time of Week.
 int32 x         # Velocity ECEF X coordinate [mm/s].

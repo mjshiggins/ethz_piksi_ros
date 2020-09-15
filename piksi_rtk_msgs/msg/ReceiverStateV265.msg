@@ -1,9 +1,9 @@
 # Miscellaneous information form different SBP messages
 
-# Message definition based on libsbp v2.2.15
+# Message definition based on libsbp v2.6.5
 
 
-Header header
+std_msgs/Header header
 
 uint8 num_sat                   # Number of satellites.
 bool rtk_mode_fix 	            # 1 = Fixed, 0 = Float.
@@ -12,6 +12,7 @@ uint8[] cn0                     # Carrier-to-Noise density. Zero implies invalid
 uint8 system_error              # System Error Flag.
 uint8 io_error                  # IO Error Flag.
 uint8 swift_nap_error           # SwiftNAP Error Flag.
+uint8 external_antenna_short    # External Antenna Short Flag.
 uint8 external_antenna_present  # External Antenna Present Flag.
 uint8 num_gps_sat               # Number of GPS satellites.
 uint8[] cn0_gps                 # Carrier-to-Noise density of GPS satellites. Zero implies invalid cn0 [dB Hz / 4].
@@ -19,20 +20,22 @@ uint8 num_sbas_sat              # Number of SBAS satellites.
 uint8[] cn0_sbas                # Carrier-to-Noise density of SBAS satellites. Zero implies invalid cn0 [dB Hz / 4].
 uint8 num_glonass_sat           # Number of GLONASS satellites.
 uint8[] cn0_glonass             # Carrier-to-Noise density of GLONASS satellites. Zero implies invalid cn0 [dB Hz / 4].
+uint8 num_bds_sat               # Number of BEIDOU satellites.
+uint8[] cn0_bds                 # Carrier-to-Noise density of Beidou satellites. Zero implies invalid cn0 [dB Hz / 4].
+uint8 num_gal_sat               # Number of GALILEO satellites.
+uint8[] cn0_gal                 # Carrier-to-Noise density of GALILEO satellites. Zero implies invalid cn0 [dB Hz / 4].
 string fix_mode                 # Invalid, Single Point Position (SPP), Differential GNSS (DGNSS), Float RTK, Fixed RTK.
+bool utc_time_ready             # Indicates whether sensor data time can be converted to UTC time.
 
+# codes available in message "MeasurementState.msg"
 
-uint8 CODE_GPS_L1CA     = 0
-uint8 CODE_GPS_L2CM     = 1
-uint8 CODE_SBAS_L1CA    = 2
-uint8 CODE_GLO_L1CA     = 3
-uint8 CODE_GLO_L2CA     = 4
-uint8 CODE_GPS_L1P      = 5
-uint8 CODE_GPS_L2P      = 6
+string STR_FIX_MODE_INVALID        = Invalid
+string STR_FIX_MODE_SPP            = SPP
+string STR_FIX_MODE_DGNSS          = DGNSS
+string STR_FIX_MODE_FLOAT_RTK      = FLOAT_RTK
+string STR_FIX_MODE_FIXED_RTK      = FIXED_RTK
+string STR_FIX_MODE_DEAD_RECKONING = DEAD_RECKONING
+string STR_FIX_MODE_SBAS           = SBAS
+string STR_FIX_MODE_UNKNOWN        = Unknown
 
-string STR_FIX_MODE_INVALID   = Invalid
-string STR_FIX_MODE_SPP       = SPP
-string STR_FIX_MODE_DGNSS     = DGNSS
-string STR_FIX_MODE_FLOAT_RTK = FLOAT_RTK
-string STR_FIX_MODE_FIXED_RTK = FIXED_RTK
-string STR_FIX_MODE_UNKNOWN   = Unknown
+uint8 STATUS_UNKNOWN = 255

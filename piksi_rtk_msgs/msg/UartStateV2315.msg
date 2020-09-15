@@ -3,7 +3,7 @@
 # Message definition based on libsbp v2.3.15, only some field were selected for the original SBP message (same ones
 # used in piksi_tools/console/system_monitor_view.py, function "uart_state_callback").
 
-Header header
+std_msgs/Header header
 
 int32 latency_avg               # Average latency [ms].
 int32 latency_lmin              # Minimum latency [ms].

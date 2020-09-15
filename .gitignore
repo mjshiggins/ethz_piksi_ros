@@ -7,6 +7,18 @@ src/*.pyc
 */cmake-build-debug
 geodetic_survey_bags/*.bag
 
+devel/
+install/
+logs/
+log/
+build/
+bin/
+lib/
+msg_gen/
+srv_gen/
+build_isolated/
+devel_isolated/
+
 *.pyc
 
 #QT files
@@ -30,3 +42,6 @@ geodetic_survey_bags/*.bag
 *.order
 
 *libraries*
+
+# Catkin custom files
+CATKIN_IGNORE

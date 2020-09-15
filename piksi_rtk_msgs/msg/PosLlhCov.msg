@@ -7,7 +7,7 @@
 # reported against the ”downward” measurement and care should be taken with the
 # sign convention.
 
-Header header
+std_msgs/Header header
 
 uint32 tow          # GPS Time of Week [ms].
 float64 lat         # Latitude [deg].

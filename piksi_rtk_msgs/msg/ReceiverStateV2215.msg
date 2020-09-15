@@ -1,9 +1,9 @@
 # Miscellaneous information form different SBP messages
 
-# Message definition based on libsbp v2.3.15
+# Message definition based on libsbp v2.2.15
 
 
-Header header
+std_msgs/Header header
 
 uint8 num_sat                   # Number of satellites.
 bool rtk_mode_fix 	            # 1 = Fixed, 0 = Float.
@@ -22,13 +22,17 @@ uint8[] cn0_glonass             # Carrier-to-Noise density of GLONASS satellites
 string fix_mode                 # Invalid, Single Point Position (SPP), Differential GNSS (DGNSS), Float RTK, Fixed RTK.
 
 
-# codes available in message "TrackingState_V2_3_15.msg"
+uint8 CODE_GPS_L1CA     = 0
+uint8 CODE_GPS_L2CM     = 1
+uint8 CODE_SBAS_L1CA    = 2
+uint8 CODE_GLO_L1CA     = 3
+uint8 CODE_GLO_L2CA     = 4
+uint8 CODE_GPS_L1P      = 5
+uint8 CODE_GPS_L2P      = 6
 
-string STR_FIX_MODE_INVALID        = Invalid
-string STR_FIX_MODE_SPP            = SPP
-string STR_FIX_MODE_DGNSS          = DGNSS
-string STR_FIX_MODE_FLOAT_RTK      = FLOAT_RTK
-string STR_FIX_MODE_FIXED_RTK      = FIXED_RTK
-string STR_FIX_MODE_DEAD_RECKONING = DEAD_RECKONING
-string STR_FIX_MODE_SBAS           = SBAS
-string STR_FIX_MODE_UNKNOWN        = Unknown
+string STR_FIX_MODE_INVALID   = Invalid
+string STR_FIX_MODE_SPP       = SPP
+string STR_FIX_MODE_DGNSS     = DGNSS
+string STR_FIX_MODE_FLOAT_RTK = FLOAT_RTK
+string STR_FIX_MODE_FIXED_RTK = FIXED_RTK
+string STR_FIX_MODE_UNKNOWN   = Unknown

@@ -1,88 +1,126 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(piksi_rtk_msgs)
 
+# Default to C99
+if(NOT CMAKE_C_STANDARD)
+  set(CMAKE_C_STANDARD 99)
+endif()
+
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
 ## Find catkin macros and libraries
-find_package(catkin REQUIRED
-  COMPONENTS
-    rospy
-    message_generation
-    std_msgs
-    geometry_msgs
-    sensor_msgs
+#find_package(catkin REQUIRED
+#  COMPONENTS
+#    rospy
+#    message_generation
+#    std_msgs
+#    geometry_msgs
+#    sensor_msgs
+#)
+
+# find dependencies
+set(${PROJECT_NAME}_DEPS
+  std_msgs
+  geometry_msgs
+  sensor_msgs
 )
+foreach(dep IN ITEMS ${${PROJECT_NAME}_DEPS})
+  find_package(${dep} REQUIRED)
+endforeach(dep)
 
 #######################################
 ## Declare ROS messages and services ##
 #######################################
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-    AgeOfCorrections.msg
-    BaselineEcef.msg
-    BaselineHeading.msg
-    BaselineNed.msg
-    BasePosEcef.msg
-    BasePosLlh.msg
-    DeviceMonitor_V2_3_15.msg
-    Dops.msg
-    DopsMulti.msg
-    ExtEvent.msg
-    GpsTime.msg
-    GpsTimeMulti.msg
-    Heartbeat.msg
-    ImuAuxMulti.msg
-    ImuRawMulti.msg
-    InfoWifiCorrections.msg
-    Log.msg
-    MagRaw.msg
-    MeasurementState_V2_4_1.msg
-    Observation.msg
-    PosEcef.msg
-    PosEcefCov.msg
-    PositionSampling.msg
-    PositionWithCovariance.msg
-    PositionWithCovarianceStamped.msg
-    PosLlh.msg
-    PosLlhCov.msg
-    PosLlhMulti.msg
-    ReceiverState.msg
-    ReceiverState_V2_2_15.msg
-    ReceiverState_V2_3_15.msg
-    ReceiverState_V2_4_1.msg
-    ReceiverState_V2_6_5.msg
-    TrackingState.msg
-    TrackingState_V2_2_15.msg
-    TrackingState_V2_3_15.msg
-    TrackingState_V2_6_3.msg
-    UartState.msg
-    UartState_V2_3_15.msg
-    UtcTimeMulti.msg
-    VelEcef.msg
-    VelEcefCov.msg
-    VelNed.msg
-    VelNedCov.msg
-    VelocityWithCovariance.msg
-    VelocityWithCovarianceStamped.msg
+#add_message_files(
+#  FILES
+rosidl_generate_interfaces(${PROJECT_NAME}
+    "msg/AgeOfCorrections.msg"
+    "msg/BaselineEcef.msg"
+    "msg/BaselineHeading.msg"
+    "msg/BaselineNed.msg"
+    "msg/BasePosEcef.msg"
+    "msg/BasePosLlh.msg"
+    "msg/DeviceMonitorV2315.msg"
+    "msg/Dops.msg"
+    "msg/DopsMulti.msg"
+    "msg/ExtEvent.msg"
+    "msg/GpsTime.msg"
+    "msg/GpsTimeMulti.msg"
+    "msg/Heartbeat.msg"
+    "msg/ImuAuxMulti.msg"
+    "msg/ImuRawMulti.msg"
+    "msg/InfoWifiCorrections.msg"
+    "msg/Log.msg"
+    "msg/MagRaw.msg"
+    "msg/MeasurementStateV241.msg"
+    "msg/Observation.msg"
+    "msg/PosEcef.msg"
+    "msg/PosEcefCov.msg"
+    "msg/PositionSampling.msg"
+    "msg/PositionWithCovariance.msg"
+    "msg/PositionWithCovarianceStamped.msg"
+    "msg/PosLlh.msg"
+    "msg/PosLlhCov.msg"
+    "msg/PosLlhMulti.msg"
+    "msg/ReceiverState.msg"
+    "msg/ReceiverStateV2215.msg"
+    "msg/ReceiverStateV2315.msg"
+    "msg/ReceiverStateV241.msg"
+    "msg/ReceiverStateV265.msg"
+    "msg/TrackingState.msg"
+    "msg/TrackingStateV2215.msg"
+    "msg/TrackingStateV2315.msg"
+    "msg/TrackingStateV263.msg"
+    "msg/UartState.msg"
+    "msg/UartStateV2315.msg"
+    "msg/UtcTimeMulti.msg"
+    "msg/VelEcef.msg"
+    "msg/VelEcefCov.msg"
+    "msg/VelNed.msg"
+    "msg/VelNedCov.msg"
+    "msg/VelocityWithCovariance.msg"
+    "msg/VelocityWithCovarianceStamped.msg"
+
+    "srv/EnuOrigin.srv"
+    "srv/SamplePosition.srv"
+    "srv/SettingsWrite.srv"
+    "srv/SettingsReadReq.srv"
+    "srv/SettingsReadResp.srv"
+
+    DEPENDENCIES builtin_interfaces ${${PROJECT_NAME}_DEPS}
 )
 
 ## Generate services in the 'srv' folder
-add_service_files(
-  FILES
-    EnuOrigin.srv
-    SamplePosition.srv
-    SettingsWrite.srv
-    SettingsReadReq.srv
-    SettingsReadResp.srv
-)
+#add_service_files(
+#  FILES
+#    EnuOrigin.srv
+#    SamplePosition.srv
+#    SettingsWrite.srv
+#    SettingsReadReq.srv
+#    SettingsReadResp.srv
+#)
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-    std_msgs
-    geometry_msgs
-    sensor_msgs
-)
+#generate_messages(
+#  DEPENDENCIES
+#    std_msgs
+#    geometry_msgs
+#    sensor_msgs
+#)
 
 ###################################
 ## catkin specific configuration ##
@@ -93,12 +131,16 @@ generate_messages(
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS
-#  LIBRARIES
-  CATKIN_DEPENDS
-    message_runtime
-    std_msgs
-    geometry_msgs
-#  DEPENDS
-)
+#catkin_package(
+##  INCLUDE_DIRS
+##  LIBRARIES
+#  CATKIN_DEPENDS
+#    message_runtime
+#    std_msgs
+#    geometry_msgs
+##  DEPENDS
+#)
+
+ament_export_dependencies(rosidl_default_runtime)
+
+ament_package()

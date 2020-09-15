@@ -5,7 +5,7 @@
 # The system error flag is used to indicate that an error has occurred in the system. To determine the
 # source of the error, the remaining error flags should be inspected.
 
-Header header
+std_msgs/Header header
 
 uint8 system_error              # System Error Flag.
 uint8 io_error                  # IO Error Flag.

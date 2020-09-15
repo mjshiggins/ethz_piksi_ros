@@ -4,7 +4,7 @@
 # solution using the base station position and the rover's RTK baseline vector. The full GPS time is given
 # by the preceding MSG GPS TIME with the matching time-of-week (tow).
 
-Header header
+std_msgs/Header header
 
 uint32 tow          # GPS Time of Week [ms].
 float64 x           # ECEF X coordinate [m].

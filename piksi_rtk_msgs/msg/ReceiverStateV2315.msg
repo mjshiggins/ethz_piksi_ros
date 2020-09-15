@@ -1,9 +1,9 @@
 # Miscellaneous information form different SBP messages
 
-# Message definition based on libsbp v2.4.1
+# Message definition based on libsbp v2.3.15
 
 
-Header header
+std_msgs/Header header
 
 uint8 num_sat                   # Number of satellites.
 bool rtk_mode_fix 	            # 1 = Fixed, 0 = Float.
@@ -19,14 +19,10 @@ uint8 num_sbas_sat              # Number of SBAS satellites.
 uint8[] cn0_sbas                # Carrier-to-Noise density of SBAS satellites. Zero implies invalid cn0 [dB Hz / 4].
 uint8 num_glonass_sat           # Number of GLONASS satellites.
 uint8[] cn0_glonass             # Carrier-to-Noise density of GLONASS satellites. Zero implies invalid cn0 [dB Hz / 4].
-uint8 num_bds_sat               # Number of BEIDOU satellites.
-uint8[] cn0_bds                 # Carrier-to-Noise density of Beidou satellites. Zero implies invalid cn0 [dB Hz / 4].
-uint8 num_gal_sat               # Number of GALILEO satellites.
-uint8[] cn0_gal                 # Carrier-to-Noise density of GALILEO satellites. Zero implies invalid cn0 [dB Hz / 4].
 string fix_mode                 # Invalid, Single Point Position (SPP), Differential GNSS (DGNSS), Float RTK, Fixed RTK.
 
 
-# codes available in message "MeasurementState.msg"
+# codes available in message "TrackingState_V2_3_15.msg"
 
 string STR_FIX_MODE_INVALID        = Invalid
 string STR_FIX_MODE_SPP            = SPP

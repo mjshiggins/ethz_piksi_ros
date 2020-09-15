@@ -1,6 +1,6 @@
 # Miscellaneous information form different SBP messages
 
-Header header
+std_msgs/Header header
 
 uint8 num_sat                   # Number of satellites.
 bool rtk_mode_fix 	            # 1 = Fixed, 0 = Float.

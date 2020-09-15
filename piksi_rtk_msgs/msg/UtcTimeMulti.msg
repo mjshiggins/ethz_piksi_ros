@@ -1,7 +1,7 @@
 # This message reports the Universal Coordinated Time (UTC). Note the flags which
 # indicate the source of the UTC offset value and source of the time fix.
 
-Header header
+std_msgs/Header header
 
 uint8 flags   # Indicates source and time validity
 uint32 tow    # GPS time of week rounded to the nearest millisecond

@@ -3,7 +3,7 @@
 
 # Modified to contain ROS time.
 
-std_msgs/Time stamp
+builtin_interfaces/Time stamp
 bool pin_value
 bool quality
 uint8 pin

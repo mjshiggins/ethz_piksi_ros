@@ -3,7 +3,7 @@
 # be a high-accuracy surveyed location of the base station. Any error here will result in an error in the
 # pseudo-absolute position output.
 
-Header header
+std_msgs/Header header
 
 float64 x             # ECEF X coodinate [m].
 float64 y             # ECEF Y coodinate [m].

@@ -1,7 +1,7 @@
 # The tracking message returns a variable-length array of tracking channel states. It reports status and
 # carrier-to-noise density measurements for all tracked satellites.
 
-Header header
+std_msgs/Header header
 
 uint8[] state   # Status of tracking channel.
 uint16[] sat    # Constellation-specific satellite identifier.

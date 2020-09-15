@@ -5,7 +5,7 @@
 # corrections link. Latency provides the timeliness of received base observations while the period indicates
 # their likelihood of transmission.
 
-Header header
+std_msgs/Header header
 
 float64 uart_a_tx_throughput      # UART transmit throughput [kB/s].
 float64 uart_a_rx_throughput      # UART transmit throughput [kB/s].

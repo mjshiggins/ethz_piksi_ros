@@ -3,7 +3,7 @@
 
 # Message definition based on libsbp v2.2.15
 
-Header header
+std_msgs/Header header
 
 int16 dev_vin               # Device V_in [V / 1000].
 int16 cpu_vint              # Processor V_int [V / 1000].

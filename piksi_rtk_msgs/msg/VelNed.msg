@@ -2,7 +2,7 @@
 # system is defined as the local WGS84 tangent plane centered at the current position. The full GPS time
 # is given by the preceding MSG GPS TIME with the matching time-of-week (tow).
 
-Header header
+std_msgs/Header header
 
 uint32 tow          # GPS Time of Week.
 int32 n             # Velocity North coordinate [mm/s].

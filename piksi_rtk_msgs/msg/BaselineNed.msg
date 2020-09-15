@@ -3,7 +3,7 @@
 # defined at the local WGS84 tangent plane centered at the base station position. The full GPS time is
 # given by the preceding MSG GPS TIME with the matching time-of-week (tow).
 
-Header header
+std_msgs/Header header
 
 uint32 tow          # GPS Time of Week [ms].
 int32 n             # Baseline North coordinate [mm].

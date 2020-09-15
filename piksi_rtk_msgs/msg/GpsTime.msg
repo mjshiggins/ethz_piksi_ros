@@ -6,7 +6,7 @@
 # from UTC. In a message stream, this message precedes a set of other navigation messages referenced
 # to the same time (but lacking the ns field) and indicates a more precise time of these messages.
 
-Header header
+std_msgs/Header header
 
 uint32 wn   # GPS week number.
 uint32 tow  # GPS time of week rounded to the nearest millisecond [ms].
